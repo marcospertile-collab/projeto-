@@ -1,25 +1,20 @@
-// Função para filtrar as receitas por categoria
-function filtrar(categoria) {
+function filtrar(categoria, evento) {
+  // 1. Pega todos os cards de receitas e os botões da tela
   const cards = document.querySelectorAll('.card');
-  const botoes = document.querySelectorAll('.filter-btn');
+  const botoes = document.querySelectorAll('.btn-filtro');
 
-  // Atualizar classe ativa nos botões
-  botoes.forEach(btn => {
-    btn.classList.remove('active');
-  });
+  // 2. Tira a cor de destaque de todos os botões
+  botoes.forEach(btn => btn.classList.remove('ativo'));
   
-  event.target.classList.add('active');
+  // 3. Coloca a cor de destaque apenas no botão que você acabou de clicar
+  evento.target.classList.add('ativo');
 
-  // Filtrar os cards com animação simples
+  // 4. Passa de receita em receita: se for da categoria clicada, MOSTRA; se não for, ESCONDE
   cards.forEach(card => {
-    if (categoria === 'todas') {
-      card.style.display = 'block';
+    if (categoria === 'todas' || card.classList.contains(categoria)) {
+      card.style.display = 'block'; // Mostra na tela
     } else {
-      if (card.classList.contains(categoria)) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
+      card.style.display = 'none';  // Esconde da tela
     }
   });
 }
