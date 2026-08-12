@@ -488,3 +488,45 @@ body {
     padding: 25px;
   }
 }
+/* ESTILOS DO PASSO A PASSO */
+.recipe-details {
+  margin-top: 15px;
+  border-top: 1px dashed #ddd;
+  padding-top: 10px;
+}
+
+.btn-preparo {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-preparo:hover {
+  color: var(--primary-hover);
+}
+
+.preparo-box {
+  margin-top: 10px;
+  background-color: var(--bg-light);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.preparo-box h4 {
+  color: var(--primary-color);
+  margin: 8px 0 4px 0;
+}
+
+.preparo-box ul, .preparo-box ol {
+  padding-left: 18px;
+  color: var(--text-muted);
+}
+
+.preparo-box li {
+  margin-bottom: 4px;
+}
