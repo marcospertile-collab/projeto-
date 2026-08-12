@@ -2,42 +2,130 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Meu Site de Receitas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabores & Receitas</title>
   <style>
-    /* Estilos básicos */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+    /* RESET E ESTILOS GERAIS */
+    * {
       margin: 0;
-      padding: 20px;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
-    h1 {
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    /* CABEÇALHO */
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
       color: #e65100;
     }
 
-    .subtitulo {
-      color: #666;
-      margin-bottom: 30px;
+    .logo span {
+      color: #2e7d32;
     }
 
-    /* Grid que segura os cartões */
-    .container {
+    nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #555;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #e65100;
+    }
+
+    /* BANNER DE DESTAQUE */
+    .banner {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                  url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1000') center/cover;
+      height: 250px;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .banner h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    /* SEÇÃO DE CONTEÚDO */
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .titulo-secao {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    /* FILTROS */
+    .filtros {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn-filtro {
+      padding: 8px 16px;
+      border: 2px solid #e65100;
+      background: white;
+      color: #e65100;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-filtro.ativo, .btn-filtro:hover {
+      background: #e65100;
+      color: white;
+    }
+
+    /* GRID DE CARDS */
+    .grid-receitas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
 
-    /* Cartão da receita */
     .card {
       background: white;
-      width: 280px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       overflow: hidden;
-      text-align: left;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
     }
 
     .card img {
@@ -46,65 +134,151 @@
       object-fit: cover;
     }
 
-    .conteudo {
+    .card-corpo {
       padding: 15px;
     }
 
     .categoria {
+      display: inline-block;
       background-color: #ffe0b2;
       color: #e65100;
       font-size: 12px;
       font-weight: bold;
       padding: 4px 8px;
-      border-radius: 5px;
+      border-radius: 6px;
+      margin-bottom: 8px;
     }
 
-    h3 {
-      margin: 10px 0 5px 0;
-      color: #333;
+    .card-corpo h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
     }
 
-    p {
+    .card-corpo p {
+      font-size: 14px;
       color: #666;
+      line-height: 1.4;
+    }
+
+    /* RODAPÉ */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #222;
+      color: white;
+      margin-top: 40px;
       font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-  <h1>🍳 Cantinho das Receitas</h1>
-  <p class="subtitulo">Aprenda a fazer salgados, doces e bebidas fáceis!</p>
+  <header>
+    <div class="logo">🍳 Sabores<span>&</span>Receitas</div>
+    <nav>
+      <a href="#receitas">Início</a>
+      <a href="#receitas">Receitas</a>
+    </nav>
+  </header>
 
-  <div class="container">
+  <section class="banner">
+    <h1>Receitas Fáceis e Deliciosas</h1>
+    <p>Aprenda a fazer os melhores salgados, doces e bebidas!</p>
+  </section>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Pizza">
-      <div class="conteudo">
-        <span class="categoria">Salgado</span>
-        <h3>Pizza de Queijo</h3>
-        <p>Uma pizza rápida com muito queijo derretido e molho de tomate caseiro.</p>
-      </div>
+  <main class="container" id="receitas">
+    <h2 class="titulo-secao">Explore por Categoria</h2>
+
+    <div class="filtros">
+      <button class="btn-filtro ativo" onclick="filtrar('todas', event)">Todas</button>
+      <button class="btn-filtro" onclick="filtrar('salgados', event)">Salgados</button>
+      <button class="btn-filtro" onclick="filtrar('doces', event)">Doces</button>
+      <button class="btn-filtro" onclick="filtrar('bebidas', event)">Bebidas</button>
     </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400" alt="Bolo">
-      <div class="conteudo">
-        <span class="categoria">Doce</span>
-        <h3>Bolo de Chocolate</h3>
-        <p>Bolo fofinho e molhadinho com cobertura cremosa de brigadeiro.</p>
+    <div class="grid-receitas">
+
+      <div class="card salgados">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Pizza">
+        <div class="card-corpo">
+          <span class="categoria">Salgado</span>
+          <h3>Pizza Caseira Margherita</h3>
+          <p>Massa crocante com molho de tomate fresco e bastante queijo derretido.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400" alt="Suco">
-      <div class="conteudo">
-        <span class="categoria">Bebida</span>
-        <h3>Limonada Fresca</h3>
-        <p>Limão espremido com bastante gelo e um toque de hortelã.</p>
+      <div class="card salgados">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="Hambúrguer">
+        <div class="card-corpo">
+          <span class="categoria">Salgado</span>
+          <h3>Hambúrguer Artesanal</h3>
+          <p>Hambúrguer suculento com queijo, alface, tomate e molho especial.</p>
+        </div>
       </div>
+
+      <div class="card doces">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400" alt="Bolo de Chocolate">
+        <div class="card-corpo">
+          <span class="categoria">Doce</span>
+          <h3>Bolo de Chocolate Vulcão</h3>
+          <p>Massa fofinha coberta com uma generosa camada de brigadeiro cremoso.</p>
+        </div>
+      </div>
+
+      <div class="card doces">
+        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400" alt="Donuts">
+        <div class="card-corpo">
+          <span class="categoria">Doce</span>
+          <h3>Donuts Recheados</h3>
+          <p>Rosquinhas macias com cobertura colorida e recheio cremoso.</p>
+        </div>
+      </div>
+
+      <div class="card bebidas">
+        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400" alt="Limonada">
+        <div class="card-corpo">
+          <span class="categoria">Bebida</span>
+          <h3>Limonada Suíça</h3>
+          <p>Bebida rápida e refrescante preparada com limão e folhas de hortelã.</p>
+        </div>
+      </div>
+
+      <div class="card bebidas">
+        <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=400" alt="Smoothie">
+        <div class="card-corpo">
+          <span class="categoria">Bebida</span>
+          <h3>Smoothie de Morango</h3>
+          <p>Batido cremoso feito com morangos frescos, iogurte e mel.</p>
+        </div>
+      </div>
+
     </div>
+  </main>
 
-  </div>
+  <footer>
+    <p>&copy; Sabores & Receitas. Todos os direitos reservados.</p>
+  </footer>
 
+  <script>
+    function filtrar(categoria, evento) {
+      const cards = document.querySelectorAll('.card');
+      const botoes = document.querySelectorAll('.btn-filtro');
+
+      // Remove destaque dos outros botões
+      botoes.forEach(btn => btn.classList.remove('ativo'));
+      
+      // Destaca o botão clicado
+      evento.target.classList.add('ativo');
+
+      // Exibe ou oculta os cards
+      cards.forEach(card => {
+        if (categoria === 'todas' || card.classList.contains(categoria)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
