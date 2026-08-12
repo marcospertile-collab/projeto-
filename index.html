@@ -3,282 +3,224 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sabores & Receitas</title>
-  <style>
-    /* RESET E ESTILOS GERAIS */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background-color: #f8f9fa;
-      color: #333;
-    }
-
-    /* CABEÇALHO */
-    header {
-      background-color: #ffffff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 5%;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      color: #e65100;
-    }
-
-    .logo span {
-      color: #2e7d32;
-    }
-
-    nav a {
-      margin-left: 15px;
-      text-decoration: none;
-      color: #555;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #e65100;
-    }
-
-    /* BANNER DE DESTAQUE */
-    .banner {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                  url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1000') center/cover;
-      height: 250px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      padding: 0 10px;
-    }
-
-    .banner h1 {
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-
-    /* SEÇÃO DE CONTEÚDO */
-    .container {
-      max-width: 1100px;
-      margin: 30px auto;
-      padding: 0 15px;
-    }
-
-    .titulo-secao {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #222;
-    }
-
-    /* FILTROS */
-    .filtros {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-    }
-
-    .btn-filtro {
-      padding: 8px 16px;
-      border: 2px solid #e65100;
-      background: white;
-      color: #e65100;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .btn-filtro.ativo, .btn-filtro:hover {
-      background: #e65100;
-      color: white;
-    }
-
-    /* GRID DE CARDS */
-    .grid-receitas {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: transform 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .card-corpo {
-      padding: 15px;
-    }
-
-    .categoria {
-      display: inline-block;
-      background-color: #ffe0b2;
-      color: #e65100;
-      font-size: 12px;
-      font-weight: bold;
-      padding: 4px 8px;
-      border-radius: 6px;
-      margin-bottom: 8px;
-    }
-
-    .card-corpo h3 {
-      font-size: 18px;
-      margin-bottom: 6px;
-    }
-
-    .card-corpo p {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.4;
-    }
-
-    /* RODAPÉ */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #222;
-      color: white;
-      margin-top: 40px;
-      font-size: 14px;
-    }
-  </style>
+  <title>VidaVerde | Alimentação Saudável & Bem-Estar</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
-  <header>
-    <div class="logo">🍳 Sabores<span>&</span>Receitas</div>
-    <nav>
-      <a href="#receitas">Início</a>
-      <a href="#receitas">Receitas</a>
+  <header class="header">
+    <div class="logo">
+      <i class="ph ph-leaf"></i>
+      <span>Vida</span>Verde
+    </div>
+
+    <nav class="navbar" id="navbar">
+      <a href="#inicio">Início</a>
+      <a href="#pilares">Pilares</a>
+      <a href="#receitas">Receitas Destaque</a>
+      <a href="#calculadora">Calcular IMC</a>
+      <a href="#depoimentos">Depoimentos</a>
     </nav>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="ph ph-list"></i>
+    </div>
   </header>
 
-  <section class="banner">
-    <h1>Receitas Fáceis e Deliciosas</h1>
-    <p>Aprenda a fazer os melhores salgados, doces e bebidas!</p>
+  <section id="inicio" class="hero">
+    <div class="hero-text">
+      <span class="badge">Nutrição & Saúde</span>
+      <h1>Transforme sua vida através da alimentação inteligente</h1>
+      <p>Descubra hábitos alimentares prazerosos, refeições nutritivas e conquiste mais energia e vitalidade no seu dia a dia.</p>
+      <div class="hero-buttons">
+        <a href="#receitas" class="btn btn-primary">Ver Receitas <i class="ph ph-arrow-right"></i></a>
+        <a href="#calculadora" class="btn btn-secondary">Calcular IMC</a>
+      </div>
+    </div>
   </section>
 
-  <main class="container" id="receitas">
-    <h2 class="titulo-secao">Explore por Categoria</h2>
-
-    <div class="filtros">
-      <button class="btn-filtro ativo" onclick="filtrar('todas', event)">Todas</button>
-      <button class="btn-filtro" onclick="filtrar('salgados', event)">Salgados</button>
-      <button class="btn-filtro" onclick="filtrar('doces', event)">Doces</button>
-      <button class="btn-filtro" onclick="filtrar('bebidas', event)">Bebidas</button>
+  <section id="pilares" class="section container">
+    <div class="section-title">
+      <h2>Pilares do Bem-Estar</h2>
+      <p>Pequenas escolhas diárias que geram grandes transformações no seu corpo e mente.</p>
     </div>
 
-    <div class="grid-receitas">
-
-      <div class="card salgados">
-        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Pizza">
-        <div class="card-corpo">
-          <span class="categoria">Salgado</span>
-          <h3>Pizza Caseira Margherita</h3>
-          <p>Massa crocante com molho de tomate fresco e bastante queijo derretido.</p>
-        </div>
+    <div class="grid-3">
+      <div class="card-pilar">
+        <div class="icon-box"><i class="ph ph-carrot"></i></div>
+        <h3>Comida de Verdade</h3>
+        <p>Priorize alimentos in natura e minimamente processados. Descasque mais e desembale menos.</p>
       </div>
 
-      <div class="card salgados">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="Hambúrguer">
-        <div class="card-corpo">
-          <span class="categoria">Salgado</span>
-          <h3>Hambúrguer Artesanal</h3>
-          <p>Hambúrguer suculento com queijo, alface, tomate e molho especial.</p>
-        </div>
+      <div class="card-pilar">
+        <div class="icon-box"><i class="ph ph-drop"></i></div>
+        <h3>Hidratação Constante</h3>
+        <p>A água é fundamental para o funcionamento celular, digestão e clareza mental diária.</p>
       </div>
 
-      <div class="card doces">
-        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400" alt="Bolo de Chocolate">
-        <div class="card-corpo">
-          <span class="categoria">Doce</span>
-          <h3>Bolo de Chocolate Vulcão</h3>
-          <p>Massa fofinha coberta com uma generosa camada de brigadeiro cremoso.</p>
-        </div>
+      <div class="card-pilar">
+        <div class="icon-box"><i class="ph ph-scales"></i></div>
+        <h3>Equilíbrio Nutricional</h3>
+        <p>Combine carboidratos complexos, proteínas magras e gorduras boas em proporções adequadas.</p>
       </div>
-
-      <div class="card doces">
-        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400" alt="Donuts">
-        <div class="card-corpo">
-          <span class="categoria">Doce</span>
-          <h3>Donuts Recheados</h3>
-          <p>Rosquinhas macias com cobertura colorida e recheio cremoso.</p>
-        </div>
-      </div>
-
-      <div class="card bebidas">
-        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400" alt="Limonada">
-        <div class="card-corpo">
-          <span class="categoria">Bebida</span>
-          <h3>Limonada Suíça</h3>
-          <p>Bebida rápida e refrescante preparada com limão e folhas de hortelã.</p>
-        </div>
-      </div>
-
-      <div class="card bebidas">
-        <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=400" alt="Smoothie">
-        <div class="card-corpo">
-          <span class="categoria">Bebida</span>
-          <h3>Smoothie de Morango</h3>
-          <p>Batido cremoso feito com morangos frescos, iogurte e mel.</p>
-        </div>
-      </div>
-
     </div>
-  </main>
+  </section>
 
-  <footer>
-    <p>&copy; Sabores & Receitas. Todos os direitos reservados.</p>
+  <section id="receitas" class="section bg-light">
+    <div class="container">
+      <div class="section-title">
+        <h2>Receitas Nutritivas</h2>
+        <p>Aprenda a preparar pratos saborosos, práticos e repletos de nutrientes.</p>
+      </div>
+
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="todas">Todas</button>
+        <button class="filter-btn" data-filter="cafe">Café da Manhã</button>
+        <button class="filter-btn" data-filter="almoço">Almoço & Jantar</button>
+        <button class="filter-btn" data-filter="snack">Lanches & Snacks</button>
+      </div>
+
+      <div class="grid-3 recipe-grid">
+        
+        <div class="card-recipe" data-category="cafe">
+          <div class="img-wrapper">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80" alt="Salada Bowl">
+            <span class="tag">Café da Manhã</span>
+          </div>
+          <div class="card-content">
+            <h3>Bowl Proteico de Açaí & Frutas</h3>
+            <p>Rico em antioxidantes, energia limpa e fibras para começar o dia com vitalidade.</p>
+            <div class="recipe-meta">
+              <span><i class="ph ph-clock"></i> 10 min</span>
+              <span><i class="ph ph-fire"></i> 280 kcal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-recipe" data-category="almoço">
+          <div class="img-wrapper">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" alt="Salada Colorida">
+            <span class="tag">Almoço & Jantar</span>
+          </div>
+          <div class="card-content">
+            <h3>Salada Mediterrânea Completa</h3>
+            <p>Combinação perfeita de vegetais frescos, grão-de-bico, azeite extra virgem e sementes.</p>
+            <div class="recipe-meta">
+              <span><i class="ph ph-clock"></i> 15 min</span>
+              <span><i class="ph ph-fire"></i> 320 kcal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-recipe" data-category="snack">
+          <div class="img-wrapper">
+            <img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=600&q=80" alt="Smoothie Verde">
+            <span class="tag">Lanches & Snacks</span>
+          </div>
+          <div class="card-content">
+            <h3>Smoothie Detox de Espinafre e Maçã</h3>
+            <p>Bebida ultra-refrescante que auxilia na digestão e combate o inchaço.</p>
+            <div class="recipe-meta">
+              <span><i class="ph ph-clock"></i> 5 min</span>
+              <span><i class="ph ph-fire"></i> 150 kcal</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="calculadora" class="section container">
+    <div class="calculator-wrapper">
+      <div class="calc-info">
+        <h2>Calcule seu IMC</h2>
+        <p>O Índice de Massa Corporal (IMC) é uma ferramenta simples para avaliar se o seu peso está dentro da faixa ideal para a sua altura.</p>
+      </div>
+
+      <div class="calc-form">
+        <div class="input-group">
+          <label for="peso">Seu Peso (kg)</label>
+          <input type="number" id="peso" placeholder="Ex: 68.5" step="0.1">
+        </div>
+
+        <div class="input-group">
+          <label for="altura">Sua Altura (m)</label>
+          <input type="number" id="altura" placeholder="Ex: 1.72" step="0.01">
+        </div>
+
+        <button id="btn-calcular" class="btn btn-primary">Calcular Agora</button>
+
+        <div id="resultado-imc" class="result-box hidden">
+          <span id="imc-valor">0.0</span>
+          <p id="imc-classificacao">--</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="depoimentos" class="section bg-light">
+    <div class="container">
+      <div class="section-title">
+        <h2>Histórias de Sucesso</h2>
+        <p>Veja o depoimento de quem transformou a rotina com nossas dicas.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="testimonial-card">
+          <p>"Mudar minha alimentação salvou minha disposição diária. Consegui reduzir o cansaço e melhorei muito minha digestão!"</p>
+          <div class="user-info">
+            <h4>Mariana Lima</h4>
+            <span>Praticante de Hábitos Saudáveis</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"As receitas rápidas facilitaram muito minha rotina corrida de trabalho. Hoje consigo comer bem sem gastar horas na cozinha."</p>
+          <div class="user-info">
+            <h4>Carlos Eduardo</h4>
+            <span>Empresário</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo light">
+          <i class="ph ph-leaf"></i>
+          <span>Vida</span>Verde
+        </div>
+        <p>Promovendo saúde, energia e longevidade através da nutrição consciente.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#pilares">Pilares</a></li>
+          <li><a href="#receitas">Receitas</a></li>
+          <li><a href="#calculadora">Calculadora IMC</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Receba Dicas Semanalmente</h4>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Seu melhor e-mail">
+          <button class="btn btn-primary">Assinar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 VidaVerde. Todos os direitos reservados.</p>
+    </div>
   </footer>
 
-  <script>
-    function filtrar(categoria, evento) {
-      const cards = document.querySelectorAll('.card');
-      const botoes = document.querySelectorAll('.btn-filtro');
-
-      // Remove destaque dos outros botões
-      botoes.forEach(btn => btn.classList.remove('ativo'));
-      
-      // Destaca o botão clicado
-      evento.target.classList.add('ativo');
-
-      // Exibe ou oculta os cards
-      cards.forEach(card => {
-        if (categoria === 'todas' || card.classList.contains(categoria)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
