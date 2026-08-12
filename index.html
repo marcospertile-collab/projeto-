@@ -4,7 +4,200 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sabores & Receitas</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Configurações Gerais */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Cabeçalho */
+    .header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      color: #ff5722;
+    }
+
+    .logo span {
+      color: #4caf50;
+    }
+
+    .nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #555;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover {
+      color: #ff5722;
+    }
+
+    /* Banner Principal */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                  url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80') center/cover;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 1rem;
+    }
+
+    .hero-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      background-color: #ff5722;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e64a19;
+    }
+
+    /* Seção de Receitas */
+    .container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #222;
+    }
+
+    /* Botões de Filtro */
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1.2rem;
+      border: 2px solid #ff5722;
+      background-color: transparent;
+      color: #ff5722;
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background-color: #ff5722;
+      color: white;
+    }
+
+    /* Grid de Cards */
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1.2rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #ffe0b2;
+      color: #e65100;
+      font-size: 0.8rem;
+      font-weight: bold;
+      padding: 0.2rem 0.6rem;
+      border-radius: 10px;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-body h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card-body p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #888;
+      border-top: 1px solid #eee;
+      padding-top: 0.8rem;
+    }
+
+    /* Rodapé */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #222;
+      color: #fff;
+      margin-top: 3rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -15,15 +208,13 @@
     <nav class="nav">
       <a href="#home">Início</a>
       <a href="#receitas">Receitas</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
     </nav>
   </header>
 
   <section id="home" class="hero">
     <div class="hero-content">
       <h2>Descubra Delícias Incríveis</h2>
-      <p>As melhores receitas de doces, salgados e bebidas para transformar sua cozinha!</p>
+      <p>As melhores receitas de doces, salgados e bebidas!</p>
       <a href="#receitas" class="btn">Ver Receitas</a>
     </div>
   </section>
@@ -32,10 +223,10 @@
     <h2 class="section-title">Nossas Receitas</h2>
     
     <div class="filter-buttons">
-      <button class="filter-btn active" onclick="filtrar('todas')">Todas</button>
-      <button class="filter-btn" onclick="filtrar('salgados')">Salgados</button>
-      <button class="filter-btn" onclick="filtrar('doces')">Doces</button>
-      <button class="filter-btn" onclick="filtrar('bebidas')">Bebidas</button>
+      <button class="filter-btn active" onclick="filtrar('todas', event)">Todas</button>
+      <button class="filter-btn" onclick="filtrar('salgados', event)">Salgados</button>
+      <button class="filter-btn" onclick="filtrar('doces', event)">Doces</button>
+      <button class="filter-btn" onclick="filtrar('bebidas', event)">Bebidas</button>
     </div>
 
     <div class="recipe-grid">
@@ -45,7 +236,7 @@
         <div class="card-body">
           <span class="tag">Salgado</span>
           <h3>Pizza Caseira Margherita</h3>
-          <p>Massa crocante por fora e macia por dentro com bastante queijo e manjericão fresco.</p>
+          <p>Massa crocante por fora e macia por dentro com bastante queijo.</p>
           <div class="info">
             <span>⏱ 45 min</span>
             <span>🔥 Fácil</span>
@@ -71,48 +262,9 @@
         <div class="card-body">
           <span class="tag">Bebida</span>
           <h3>Limonada Suíça com Hortelã</h3>
-          <p>Uma bebida refrescante e rápida, perfeita para dias quentes de verão.</p>
+          <p>Uma bebida refrescante e rápida, perfeita para dias quentes.</p>
           <div class="info">
             <span>⏱ 10 min</span>
-            <span>🔥 Fácil</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card salgados">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Hambúrguer Artesanal">
-        <div class="card-body">
-          <span class="tag">Salgado</span>
-          <h3>Hambúrguer Artesanal</h3>
-          <p>Suculento e cheio de sabor, acompanhado de queijo derretido e molho especial.</p>
-          <div class="info">
-            <span>⏱ 30 min</span>
-            <span>🔥 Fácil</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card doces">
-        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=500&q=80" alt="Donuts Decorados">
-        <div class="card-body">
-          <span class="tag">Doce</span>
-          <h3>Donuts Gourmet</h3>
-          <p>Rosquinhas americanas super macias com confeitos e coberturas variadas.</p>
-          <div class="info">
-            <span>⏱ 1h 20m</span>
-            <span>🔥 Avançado</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card bebidas">
-        <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=500&q=80" alt="Smoothie de Morango">
-        <div class="card-body">
-          <span class="tag">Bebida</span>
-          <h3>Smoothie Crepúsculo de Morango</h3>
-          <p>Mistura cremosa de morangos frescos, iogurte natural e mel.</p>
-          <div class="info">
-            <span>⏱ 5 min</span>
             <span>🔥 Fácil</span>
           </div>
         </div>
@@ -122,9 +274,25 @@
   </section>
 
   <footer class="footer">
-    <p>&copy; 2026 Sabores & Receitas. Todos os direitos reservados.</p>
+    <p>&copy; Sabores & Receitas. Todos os direitos reservados.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    function filtrar(categoria, evento) {
+      const cards = document.querySelectorAll('.card');
+      const botoes = document.querySelectorAll('.filter-btn');
+
+      botoes.forEach(btn => btn.classList.remove('active'));
+      evento.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (categoria === 'todas' || card.classList.contains(categoria)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
